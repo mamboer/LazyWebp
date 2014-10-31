@@ -1,0 +1,232 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"/>
+    <title>FASO - LazyPic.js</title>
+    <meta name="description" content="Loading every bits of images on demand, using Webp whenever possible" />
+    <meta name="keywords" content="lazyload,延迟加载,按需加载,lazypic"/>
+    <link rel="stylesheet" href="assets/codemirror/lib/codemirror.css"/>
+    <link rel="stylesheet" href="assets/codemirror/theme/monokai.css"/>
+    <script src="assets/codemirror/lib/codemirror.js"></script>
+    <script src="assets/codemirror/mode/xml/xml.js"></script>
+    <script src="assets/codemirror/mode/javascript/javascript.js"></script>
+    <script src="assets/codemirror/mode/css/css.js"></script>
+    <script src="assets/codemirror/mode/htmlembedded/htmlembedded.js"></script>
+    <script src="assets/codemirror/mode/htmlmixed/htmlmixed.js"></script> 
+    <style>
+        *, :after, :before {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+        html,body{
+            height:100%;
+            display:block;
+        }
+        body{
+            -webkit-tap-highlight-color:rgba(0,0,0,0);
+            color:#333;
+            background:url(assets/pic/bg-tile.png);
+        }
+        img{
+            max-width:100%;
+        }
+        ol{
+            list-style:decimal inside;
+        }
+        .CodeMirror{height:auto;}
+        .v-center{
+            position:relative;
+            top:50%;
+            -webkit-transform:translateY(-50%);
+            transform:translateY(-50%);
+        }
+        .heading.h-01 {
+            font-family:  Arial, sans-serif;
+            font-size: 80px;
+            font-weight: normal;
+            line-height: 1;
+            text-transform: uppercase;
+            margin-bottom:50px;
+        }
+        .h-02{
+            font-size:1.6em;
+            margin:0.83em 0;
+        }
+        .copy-01{
+            margin-bottom:20px;
+        }
+        .copy-02{
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-size-adjust: 100%;
+            text-rendering: optimizeLegibility;
+            font-family:  Arial, sans-serif;
+            font-size: 24px;
+            color: #888a8b;
+            line-height: 30px;
+            margin-bottom:80px;
+        }
+        .hero{
+            text-align:center;
+            color:#fff;
+        }
+        .showcase{
+            text-align:left;
+            margin-left:auto;
+            margin-right:auto;
+            margin-top:10%;
+            width:95%;
+        }
+        .btn-circle{
+            display:block;
+            width:60px;
+            height:60px;
+            margin-left:auto;
+            margin-right:auto;
+            text-align:center;
+            line-height:58px;
+            border:2px solid #fff;
+            color:#fff;
+            font-size:2.2em;
+            border-radius:50%;
+            -webkit-border-radius:50%;
+            text-decoration:none;
+            -webkit-transition:all .2s ease-out;
+            transition:all .2s ease-out;
+        }
+        .btn-circle:hover{
+            color:#10A296;
+            border-color:#10A296;
+        }
+        .btn-down{
+            margin-bottom:20px;
+        }
+        .landing{
+            height:90%;
+            background:#23232e;
+        }
+        .ipt-code{
+            display:none;
+        }
+        .code-block{
+            text-align:left;
+            border-top:1px solid #333;
+            border-bottom:1px solid #333;
+            margin-bottom:20px; 
+        }
+        .badge{
+            display:inline-block;
+            border-bottom:2px dashed #10A296;
+            margin:0 2px;
+            font-style:normal;
+            font-size:110%;
+        }
+
+        @media screen and (max-width: 660px) {
+            .heading.h-01{font-size:44px;margin-bottom:35px;}
+            .copy-02{font-size:20px;margin-bottom:60px;}
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="landing">
+        <div class="hero v-center">
+        
+            <h1 class="heading h-01">LazyPic.JS</h1>
+            <div class="sub-header copy-02">
+                Loading every bits of images on demand, using Webp whenever possible.
+            </div>
+
+
+            <a href="dist/LazyPic.js" class="btn-circle btn-down" target="_blank" title="Download LazyPic.JS">&#8627;</a>
+
+            <a href="#demo" class="btn-circle arrow-down" title="Move down!">&#9661;</a>
+        </div> 
+    </div>
+    
+    <div class="showcase" id="demo">
+		
+        <h2 class="h-02">Step 1 - The Magic <em class="badge">data-lazyload</em> &amp; <em class="badge">data-data-webp</em> </h2>
+        <div class="copy-01">
+            <ol>
+                <li>A <a href="http://static.gtimg.com/icson/img/common/blank.png" target="_blank">1px blank png</a> file as placeholder</li>
+                <li>Using the <em class="badge">data-lazyload</em> attribute holding the target image file</li>
+                <li>Using the <em class="badge">data-webp</em> attribute holding the corresponsive webp file (not neccessary if you don't wanna use webp!)</li>
+            </ol>
+        </div>
+        <div class="code-block">
+            <textarea class="ipt-code" name="code">
+			<img src="http://static.gtimg.com/icson/img/common/blank.png" 
+                data-lazyload="assets/pic/1.jpg" 
+                data-webp="assets/pic/1.webp" />
+            </textarea>
+        </div>
+
+        <h2 class="h-02">Step2 - Reference the LazyPic.JS and fire it!</h2>
+
+        <div class="code-block">
+        
+            <textarea class="ipt-code" name="code">
+            /* zepto or jquery  */
+            <script src="http://zeptojs.com/zepto.js"></script>
+            /* extra zepto plugins. Just delete this line if you use jQuery */
+            <script src="dist/zepto-extras.min.js"></script>
+            /* lazypic.js */
+            <script src="dist/lazypic.min.js"></script>
+	        /* bootup and fire */
+            <script>
+
+                new LazyPic();
+	
+	        </script>
+            </textarea>
+        
+        </div>        
+
+        <h2 class="h-02">Showcase</h2>
+        <p class="copy-01">
+			<img src="http://static.gtimg.com/icson/img/common/blank.png" data-lazyload="assets/pic/1.jpg" data-webp="assets/pic/1.webp" />
+		</p>
+		<p class="copy-01">
+			<img src="http://static.gtimg.com/icson/img/common/blank.png" data-lazyload="assets/pic/2.jpg" />
+		</p>
+		<p class="copy-01">
+			<img src="http://static.gtimg.com/icson/img/common/blank.png" data-lazyload="assets/pic/3.jpg" />
+		</p>
+		<p class="copy-01">
+			<img src="http://static.gtimg.com/icson/img/common/blank.png" data-lazyload="assets/pic/4.jpg" data-webp="assets/pic/4.webp" />
+		</p>
+
+	</div>
+	<script src="http://zeptojs.com/zepto.js"></script>
+    <script src="src/zepto.x.js"></script>
+    <script src="src/WebpDetect.js"></script>
+    <script src="src/LazyPic.js"></script>
+	<script>
+
+        new LazyPic();
+
+        //codemirror
+        var mixedMode = {
+            name: "htmlmixed",
+            scriptTypes: [
+                {matches: /\/x-handlebars-template|\/x-mustache/i, mode: null},
+                {matches: /(text|application)\/(x-)?vb(a|script)/i,mode: "vbscript"}
+            ]
+        };
+        
+        $(function(){
+            var editors = {};
+            $('.ipt-code').each(function(i,o){
+                editors['editor'+i] = CodeMirror.fromTextArea(o,{mode:mixedMode,theme:'monokai'});
+            });
+        });
+	
+	</script>
+</body>
+</html>
+

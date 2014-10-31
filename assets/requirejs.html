@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"/>
+    <title>FASO - LazyPic.js - 使用requirejs加载</title>
+    <meta name="description" content="Loading every bits of images on demand, using Webp whenever possible" />
+    <meta name="keywords" content="lazyload,延迟加载,按需加载,lazypic"/>
+   
+	<style type="text/css">
+		h1{text-align:center;}
+        p{margin: 20px 0;}
+	    img{max-width:100%;}
+    </style>
+</head>
+<body>
+
+    <h1>LazyPic.js - 使用requirejs加载</h1>  
+
+	<div style="margin:auto;text-align:center;" id="test">
+		<p>
+			<img src="http://static.gtimg.com/icson/img/common/blank.png" data-lazyload="http://img1.icson.com/ICSONAD/201310/1_big20131027232916324300.jpg" />
+		</p>
+		<p>
+			<img src="http://static.gtimg.com/icson/img/common/blank.png" data-lazyload="http://img1.icson.com/ICSONAD/201310/1_big20131028091359984252.jpg" />
+		</p>
+		<p>
+			<img src="http://static.gtimg.com/icson/img/common/blank.png" data-lazyload="http://img2.icson.com/ICSONAD/201310/1_big20131028115542807767.jpg" />
+		</p>
+		<p>
+			<img src="http://static.gtimg.com/icson/img/common/blank.png" data-lazyload="http://img2.icson.com/ICSONAD/201310/1_big20131028090134404901.jpg" />
+		</p>
+
+	</div>
+	<script src="require.js" data-main="bootup.rjs"></script>
+	<script>
+        requirejs.config({
+            baseUrl:'',
+            paths:{
+                'jquery':'jquery-1.11.1.min',
+                'LazyPic':'../dist/LazyPic'
+            }
+        });	
+	</script>
+</body>
+</html>
+

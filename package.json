@@ -1,0 +1,37 @@
+{
+  "name": "LazyWebp",
+  "version": "1.0.0",
+  "title":"FASO.ME - LazyWebp.js",
+  "keywords": "HTML, CSS, JS, JavaScript, framework, webp, lazywebp",
+  "description": "A javascript module for lazy-loading images on demand.",
+  "repository": "git://github.com/mamboer/LazyWebp.git",
+  "homepage": "http://faso.me/lazywebp",
+  "author": {
+    "name": "LevinWong",
+    "site": "http://faso.me"
+  },
+  "license": [
+    {
+      "type": "MIT"
+    }
+  ],
+  "devDependencies": {
+    "grunt": "~0.4.4",
+    "grunt-contrib-concat": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-concat-css": "*",
+    "grunt-css": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-imagemin": "*",
+    "grunt-concurrent": "*",
+    "grunt-contrib-copy": "*",
+    "load-grunt-config": "*",
+    "grunt-newer": "*",
+    "grunt-contrib-less": "~0.11.0",
+    "grunt-replace":"*",
+    "grunt-webp":"*"
+  },
+  "dependencies": {
+    "time-grunt": "*"
+  }
+}

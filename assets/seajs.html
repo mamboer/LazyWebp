@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"/>
+    <title>FASO - Lazyload.cmd.js</title>
+    <meta name="description" content="一个延迟加载图片的seajs模块" />
+    <meta name="keywords" content="lazyload,延迟加载,按需加载,lazypic"/>
+    
+	<style type="text/css">
+		h1{text-align:center;}
+        p{margin: 20px 0;}
+	    img{max-width:100%;}
+    </style>
+</head>
+<body>
+
+    <h1>lazyload.cmd.js - 一个延迟加载图片的seajs模块</h1>  
+
+	<div style="margin:auto;text-align:center;" id="test">
+		<p>
+			<img src="http://static.gtimg.com/icson/img/common/blank.png" data-lazyload="http://img1.icson.com/ICSONAD/201310/1_big20131027232916324300.jpg" />
+		</p>
+		<p>
+			<img src="http://static.gtimg.com/icson/img/common/blank.png" data-lazyload="http://img1.icson.com/ICSONAD/201310/1_big20131028091359984252.jpg" />
+		</p>
+		<p>
+			<img src="http://static.gtimg.com/icson/img/common/blank.png" data-lazyload="http://img2.icson.com/ICSONAD/201310/1_big20131028115542807767.jpg" />
+		</p>
+		<p>
+			<img src="http://static.gtimg.com/icson/img/common/blank.png" data-lazyload="http://img2.icson.com/ICSONAD/201310/1_big20131028090134404901.jpg" />
+		</p>
+
+	</div>
+	<script type="text/javascript" src="sea.js"></script>
+	<script type="text/javascript">
+		seajs.use("../dist/lazyload.cmd.js", function(LazyPic){
+			var html = LazyPic.toLazyloadHtml('<img src="a.jpg"><div>dsadasdas</div><img src="a.jpg" alt="asdasd" />');
+			console.log(html)
+			new LazyPic();
+		});
+	
+	</script>
+</body>
+</html>
+
