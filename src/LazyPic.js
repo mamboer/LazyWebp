@@ -145,7 +145,7 @@
 		autoDestroy: true, //容器内的图片都加载完成时，是否自动停止监听
 		dynamic: false, //是否有动态的内容插入
 		threshold: 100, //阀值，提前加载的距离
-        scrollTimerDelay: 50 // 滚动事件触发的延时，单位ms。滚动事件属于高频事件，增加延时可以显著提升性能
+        scrollTimerDelay: 30 // 滚动事件触发的延时，单位ms。滚动事件属于高频事件，增加延时可以显著提升性能
 	}
 
 	return Lazyloader;

@@ -124,7 +124,15 @@
             font-style:normal;
             font-size:110%;
         }
-
+        .demo-pic img{
+            width:800px;
+            min-height:100px;
+            max-width:100%;
+        }
+        .demo-pic img[data-lazyload]{
+            background:url(https://assets-cdn.github.com/assets/spinners/octocat-spinner-16px-EAF2F5-51a410020c7197f8c4df78e79d28a05dca25d42014cd95e13b232cd2ef89109c.gif) no-repeat center center #ddd;
+            position:relative;
+        }
         @media screen and (max-width: 660px) {
             .heading.h-01{font-size:44px;margin-bottom:35px;}
             .copy-02{font-size:20px;margin-bottom:60px;}
@@ -160,9 +168,9 @@
         </div>
         <div class="code-block">
             <textarea class="ipt-code" name="code">
-			<img src="http://static.gtimg.com/icson/img/common/blank.png" 
-                data-lazyload="assets/pic/1.jpg" 
-                data-webp="assets/pic/1.webp" />
+<img src="http://static.gtimg.com/icson/img/common/blank.png" 
+    data-lazyload="assets/pic/1.jpg" 
+    data-webp="assets/pic/1.webp" />
             </textarea>
         </div>
 
@@ -171,33 +179,33 @@
         <div class="code-block">
         
             <textarea class="ipt-code" name="code">
-            /* zepto or jquery  */
-            <script src="http://zeptojs.com/zepto.js"></script>
-            /* extra zepto plugins. Just delete this line if you use jQuery */
-            <script src="dist/zepto-extras.min.js"></script>
-            /* lazypic.js */
-            <script src="dist/lazypic.min.js"></script>
-	        /* bootup and fire */
-            <script>
+/* zepto or jquery  */
+<script src="http://zeptojs.com/zepto.js"></script>
+/* extra zepto plugins. Just delete this line if you use jQuery */
+<script src="dist/zepto-extras.min.js"></script>
+/* lazypic.js */
+<script src="dist/lazypic.min.js"></script>
+/* bootup and fire */
+<script>
 
-                new LazyPic();
-	
-	        </script>
+    new LazyPic();
+
+</script>
             </textarea>
         
         </div>        
 
         <h2 class="h-02">Showcase</h2>
-        <p class="copy-01">
+        <p class="copy-01 demo-pic">
 			<img src="http://static.gtimg.com/icson/img/common/blank.png" data-lazyload="assets/pic/1.jpg" data-webp="assets/pic/1.webp" />
 		</p>
-		<p class="copy-01">
+		<p class="copy-01 demo-pic">
 			<img src="http://static.gtimg.com/icson/img/common/blank.png" data-lazyload="assets/pic/2.jpg" />
 		</p>
-		<p class="copy-01">
+		<p class="copy-01 demo-pic">
 			<img src="http://static.gtimg.com/icson/img/common/blank.png" data-lazyload="assets/pic/3.jpg" />
 		</p>
-		<p class="copy-01">
+		<p class="copy-01 demo-pic">
 			<img src="http://static.gtimg.com/icson/img/common/blank.png" data-lazyload="assets/pic/4.jpg" data-webp="assets/pic/4.webp" />
 		</p>
 
