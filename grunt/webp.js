@@ -3,7 +3,7 @@ module.exports = {
     files: {
         expand: true,
         cwd: 'assets/pic/',
-        src: '*.jpg',
+        src: '**/*.jpg',
         dest: 'assets/pic/'
     },
     options: {
